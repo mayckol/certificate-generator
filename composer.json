@@ -1,0 +1,21 @@
+{
+    "name": "mayckol/certificate-generator",
+    "description": "certificate generator of multiple types",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mayckol",
+            "email": "mayckoll@live.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "CertificateGenerator\\": "src/"
+        }
+    }
+}
