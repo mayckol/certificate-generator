@@ -11,11 +11,11 @@ class CertificateGeneratorValidNumber
     {
         $prefixNumber = '';
         $prefixNumber .= str_pad($data['cns'], 6, 0, STR_PAD_LEFT)
-            . $data['acquis_code']
-            . $data['company_type_code']
+            . str_pad($data['acquis_code'], 2, 0, STR_PAD_LEFT)
+            . str_pad($data['company_type_code'], 2, 0, STR_PAD_LEFT)
             . $data['year']
             . $data['book_type']
-            . str_pad($data['book_number']/*user set*/, 5, 0, STR_PAD_LEFT)
+            . str_pad($data['book_number'], 5, 0, STR_PAD_LEFT)
             . str_pad($data['book_page'], 3, 0, STR_PAD_LEFT)
             . str_pad($data['index'], 7, 0, STR_PAD_LEFT);
 
@@ -27,7 +27,7 @@ class CertificateGeneratorValidNumber
             }
         }
 
-        $firstDig = $firstDig % 11 != 10 ? $firstDig : 1;
+        $firstDig = $firstDig % 11 != 10 ? $firstDig % 11 : 1;
         $prefixNumber .= $firstDig;
         $secondDig = 0;
         for ($i = 0, $j = 1; $i < strlen($prefixNumber); $i++, $j++) {
